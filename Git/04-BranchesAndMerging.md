@@ -60,6 +60,15 @@ git merge --abort
 ```
 Nothing is lost — this just undoes the in-progress merge, leaving both branches exactly as they were.
 
+## You don't have to edit raw markers by hand
+
+Everything above works in any plain text editor, which is why it's worth knowing — but several tools give you a friendlier interface over the exact same process:
+
+- **VS Code** (free) has a built-in 3-way merge editor: open a conflicted file and it shows "Accept Current Change / Incoming Change / Both Changes" links right above each conflict, plus a side-by-side view. No extra install — this ships with the editor.
+- **GitKraken** and **Tower** (see [01 — Install and set up](01-InstallAndSetup.md)) both have dedicated visual conflict resolvers — pick a side or a line-by-line combination by clicking, not typing.
+
+Under the hood, all of these do exactly steps 2–4 above: resolve the markers, stage the file, commit. Use whichever interface you're comfortable with — the underlying Git history ends up identical either way.
+
 ## When the group actually branches
 
 Solo repos (a paper's data repo, written by one person) commit straight to `main` — see [ScientificDataManagement](https://github.com/JQInanophotonics/ScientificDataManagement)'s convention. Branch when more than one person is editing the same repo at the same time, or when you want review before something lands on `main` — see [05 — Collaboration](05-Collaboration.md) for pull requests.
