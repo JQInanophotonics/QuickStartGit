@@ -521,7 +521,7 @@ Next: [06 — Syncing a paper with Overleaf over Git](06-Overleaf.md)
 - [ ] **Step 2: Verify the file was written correctly**
 
 Run: `grep -c '^#' Git/05-Collaboration.md`
-Expected: `6` (one `#` title + five `##` sections)
+Expected: `7` (one `#` title + five `##` sections + one `# ...make commits...` bash comment line inside a code block, which also starts with `#`)
 
 - [ ] **Step 3: Commit**
 
