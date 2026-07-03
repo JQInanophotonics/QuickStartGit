@@ -698,6 +698,7 @@ On GitHub: **Compare & pull request**, write a one-line description, **Create pu
 ## 5. Clean up
 
 ```bash
+git switch main                # you were left on try-a-pr after step 4
 git pull                       # bring the merged PR back into local main
 ```
 On GitHub: repo **Settings → Delete this repository** (bottom of the page) — this was a scratch repo, safe to remove once you're done practicing.
