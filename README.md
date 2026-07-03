@@ -6,6 +6,42 @@ Every other wiki in this org — [ScientificDataManagement](https://github.com/J
 
 Read the pages in order the first time — each builds on the last; use them, and the rules below, as a checklist afterwards — same spirit as [ScientificDataManagement](https://github.com/JQInanophotonics/ScientificDataManagement). If you want an interactive, visual way to see branching and merging before reading about it, [Learn Git Branching](https://learngitbranching.js.org) is an excellent 15-minute sandbox — worth doing alongside [04 — Branches and merging](Git/04-BranchesAndMerging.md).
 
+Everything below is designed to be usable at a glance — the cheat sheet and workflow give you the whole thing in one look; every other section is there to go deeper only when you need to.
+
+## Cheat sheet
+
+| Command | What it does |
+|---|---|
+| `git status` | What's changed, staged, or untracked |
+| `git add <file>` | Stage a change |
+| `git commit -m "..."` | Snapshot staged changes |
+| `git log --oneline` | See commit history |
+| `git diff` | See unstaged changes, line by line |
+| `git clone <url>` | Copy a remote repo, with history |
+| `git push` / `git pull` | Sync commits with the remote |
+| `git branch <name>` | Create a branch |
+| `git switch <name>` | Move onto a branch |
+| `git switch -c <name>` | Create + switch to a new branch in one step |
+| `git merge <name>` | Fold a branch into your current one |
+| `git merge --abort` | Bail out of a conflicted merge, no harm done |
+
+Full list with page references: [Example — command cheat-sheet](Git/Example-FirstRepoWalkthrough.md#command-cheat-sheet).
+
+## Everyday workflow
+
+**Solo, straight to `main`** (a paper-data repo, working alone):
+```
+edit files → git status → git add <file> → git commit -m "..." → git pull → git push
+```
+
+**Shared repo, or a change you want reviewed** — branch instead of pushing straight to `main`:
+```
+git switch -c my-branch → edit, commit as above → git push -u origin my-branch
+→ open a pull request on GitHub → merge
+```
+
+Conflict during a `pull` or `merge`? See [04 — Branches and merging](Git/04-BranchesAndMerging.md#when-its-not-automatic-conflicts) — it's a normal part of the process, not a sign something broke.
+
 ## The rules, in one screen
 
 1. **Git tracks snapshots of your files over time** — commit often, in small logical chunks, with a short present-tense message. See [00](Git/00-WhatIsGitAndWhy.md).
