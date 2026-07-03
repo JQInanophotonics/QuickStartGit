@@ -449,7 +449,7 @@ Next: [05 — Collaboration](05-Collaboration.md)
 - [ ] **Step 2: Verify the file was written correctly**
 
 Run: `grep -c '^#' Git/04-BranchesAndMerging.md`
-Expected: `6` (one `#` title + five `##` sections)
+Expected: `7` (one `#` title + five `##` sections + one `# ...make commits...` bash comment line inside a code block, which also starts with `#`)
 
 - [ ] **Step 3: Verify the conflict-section anchor text matches what `06-Overleaf.md` will link to**
 
