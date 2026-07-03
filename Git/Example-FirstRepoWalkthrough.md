@@ -83,7 +83,8 @@ Every command used across this wiki, in one place:
 | `git remote add origin <url>` | [03](03-GitHubAndRemotes.md) | Connect a local repo to a remote |
 | `git push` / `git pull` | [03](03-GitHubAndRemotes.md) | Sync commits with the remote |
 | `git branch <name>` | [04](04-BranchesAndMerging.md) | Create a branch |
-| `git switch <name>` / `git switch -c <name>` | [04](04-BranchesAndMerging.md) | Move to a branch (create + move) |
+| `git switch <name>` | [04](04-BranchesAndMerging.md) | Move onto a branch |
+| `git switch -c <name>` | [05](05-Collaboration.md) | Create + switch to a new branch in one step |
 | `git merge <name>` | [04](04-BranchesAndMerging.md) | Fold a branch into your current one |
 | `git merge --abort` | [04](04-BranchesAndMerging.md) | Bail out of a conflicted merge |
 
