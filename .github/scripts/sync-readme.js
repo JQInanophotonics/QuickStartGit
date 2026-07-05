@@ -10,15 +10,38 @@ const blobBase = 'https://github.com/JQInanophotonics/QuickStartGit/blob/main/';
 
 let md = fs.readFileSync('README.md', 'utf8');
 
-// 1. Drop shields.io badge lines (clusters of [![...](...)](...) on their own line)
-md = md.replace(/^(?:\[!\[[^\]]*\]\([^)]*\)\]\([^)]*\)\s*)+$/gm, '');
+// 1. SVG section/header banners -> H2. Each banner is a <picture> whose <img>
+//    src points at a local assets/ file, with alt text set to the exact
+//    heading text (README.md keeps alt clean of the "NN — " index prefix
+//    shown inside the SVG itself, so no stripping is needed here).
+md = md.replace(
+  /<picture>(?:(?!<\/picture>)[\s\S])*?<img\s+src="assets\/[^"]*"[^>]*\balt="([^"]*)"[^>]*\/>\s*<\/picture>/g,
+  '## $1'
+);
 
-// 2. Images: relative srcs -> raw.githubusercontent.com (actual file bytes,
-//    so Notion can render them as image blocks). Banners stay as images.
+// 2. Badge links (small <picture> images pointing at img.shields.io, wrapped
+//    in an <a>) carry no content worth syncing to Notion - drop them.
+md = md.replace(
+  /<a\s+href="[^"]*">(?:(?!<\/a>)[\s\S])*?img\.shields\.io(?:(?!<\/a>)[\s\S])*?<\/a>\n?/g,
+  ''
+);
+
+// 3. Centering wrapper <div>s around the header banner/badge row - just
+//    layout, meaningless once step 1/2 have run.
+md = md.replace(/<div align="center">\s*\n?/g, '');
+md = md.replace(/<\/div>\s*\n?/g, '');
+
+// 4. In-page anchors (e.g. <a id="pages"></a>, used for GitHub badge links) -
+//    Notion has no use for them.
+md = md.replace(/<a\s+id="[^"]*">\s*<\/a>\n?/g, '');
+
+// 5. Images: relative srcs -> raw.githubusercontent.com (actual file bytes,
+//    so Notion can render them as image blocks). Any real markdown images
+//    left after step 1 (i.e. not banners) get this treatment.
 md = md.replace(/(!\[[^\]]*\]\()(?!https?:\/\/)(?:\.\/)?([^)]+)\)/g, `$1${rawBase}$2)`);
 
-// 3. Regular links: relative -> absolute GitHub blob URLs.
-//    (?<!!) ensures image syntax from step 2 is not re-touched.
+// 6. Regular links: relative -> absolute GitHub blob URLs.
+//    (?<!!) ensures image syntax from step 5 is not re-touched.
 md = md.replace(/(?<!!)(\[[^\]]*\]\()(?!https?:\/\/|#)(?:\.\/)?([^)]+)\)/g, `$1${blobBase}$2)`);
 
 const blocks = markdownToBlocks(md);

@@ -8,7 +8,7 @@
 
 </div>
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/banner-forewords.svg"/><img src="assets/banner-forewords.svg" width="97%" alt="00 — Forewords"/></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/banner-forewords.svg"/><img src="assets/banner-forewords.svg" width="97%" alt="Forewords"/></picture>
 
 Every other wiki in this org — [ScientificDataManagement](https://github.com/JQInanophotonics/ScientificDataManagement), [ScientificPresentations](https://github.com/JQInanophotonics/ScientificPresentations), and the future ScientificWriting — assumes you already know Git: cloning a repo, committing changes, pushing to GitHub. This repo is where that assumption gets filled in, from zero. If you've never used version control before, you're in the right place.
 
@@ -16,7 +16,7 @@ Read the pages in order the first time — each builds on the last; use them, an
 
 Everything below is designed to be usable at a glance — the cheat sheet and workflow give you the whole thing in one look; every other section is there to go deeper only when you need to.
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/banner-cheat-sheet.svg"/><img src="assets/banner-cheat-sheet.svg" width="97%" alt="01 — Cheat Sheet"/></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/banner-cheat-sheet.svg"/><img src="assets/banner-cheat-sheet.svg" width="97%" alt="Cheat Sheet"/></picture>
 
 | Command | What it does |
 |---|---|
@@ -35,7 +35,7 @@ Everything below is designed to be usable at a glance — the cheat sheet and wo
 
 Full list with page references: [Example — command cheat-sheet](Git/Example-FirstRepoWalkthrough.md#command-cheat-sheet).
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/banner-everyday-workflow.svg"/><img src="assets/banner-everyday-workflow.svg" width="97%" alt="02 — Everyday Workflow"/></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/banner-everyday-workflow.svg"/><img src="assets/banner-everyday-workflow.svg" width="97%" alt="Everyday Workflow"/></picture>
 
 **Solo, straight to `main`** (a paper-data repo, working alone):
 ```
@@ -50,7 +50,7 @@ git switch -c my-branch → edit, commit as above → git push -u origin my-bran
 
 Conflict during a `pull` or `merge`? See [04 — Branches and merging](Git/04-BranchesAndMerging.md#when-its-not-automatic-conflicts) — it's a normal part of the process, not a sign something broke.
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/banner-the-rules.svg"/><img src="assets/banner-the-rules.svg" width="97%" alt="03 — The Rules, in One Screen"/></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/banner-the-rules.svg"/><img src="assets/banner-the-rules.svg" width="97%" alt="The Rules, in One Screen"/></picture>
 
 1. **Git tracks snapshots of your files over time** — commit often, in small logical chunks, with a short present-tense message. See [00](Git/00-WhatIsGitAndWhy.md).
 2. **Set up once per machine**: install Git, set your identity (`git config --global user.name/email`), and set up an SSH key for GitHub — never a typed password. See [01](Git/01-InstallAndSetup.md).
@@ -62,7 +62,7 @@ Conflict during a `pull` or `merge`? See [04 — Branches and merging](Git/04-Br
 
 <a id="pages"></a>
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/banner-pages.svg"/><img src="assets/banner-pages.svg" width="97%" alt="04 — Pages"/></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/banner-pages.svg"/><img src="assets/banner-pages.svg" width="97%" alt="Pages"/></picture>
 
 | Page | What it covers |
 |------|-----------------|
@@ -75,7 +75,7 @@ Conflict during a `pull` or `merge`? See [04 — Branches and merging](Git/04-Br
 | [06 — Overleaf](Git/06-Overleaf.md) | Syncing a paper with Overleaf's Git integration, resolving Overleaf conflicts |
 | [Example — a first repo, start to finish](Git/Example-FirstRepoWalkthrough.md) | Hands-on practice repo + full command cheat-sheet |
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/banner-repo-layout.svg"/><img src="assets/banner-repo-layout.svg" width="97%" alt="05 — What's in This Repo"/></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/banner-repo-layout.svg"/><img src="assets/banner-repo-layout.svg" width="97%" alt="What's in This Repo"/></picture>
 
 ```
 QuickStartGit/
@@ -94,6 +94,6 @@ QuickStartGit/
 
 No binary assets live here — the hands-on practice page has you create your own throwaway repo instead of shipping one to maintain.
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/banner-see-also.svg"/><img src="assets/banner-see-also.svg" width="97%" alt="06 — See Also"/></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/dark/banner-see-also.svg"/><img src="assets/banner-see-also.svg" width="97%" alt="See Also"/></picture>
 
 This repo is the prerequisite for every other wiki in the org: [ScientificDataManagement](https://github.com/JQInanophotonics/ScientificDataManagement), [ScientificPresentations](https://github.com/JQInanophotonics/ScientificPresentations), [ScientificGraphicDesign](https://github.com/JQInanophotonics/ScientificGraphicDesign), [ScientificWriting](https://github.com/JQInanophotonics/ScientificWriting), [JqiNanoBeamerTemplate](https://github.com/JQInanophotonics/JqiNanoBeamerTemplate).
