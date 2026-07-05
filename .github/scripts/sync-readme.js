@@ -4,19 +4,22 @@ const { markdownToBlocks } = require('@tryfabric/martian');
 
 const notion = new Client({ auth: process.env.NOTION_TOKEN });
 const pageId = process.env.NOTION_PAGE_ID;
-const repoBase = 'https://github.com/JQInanophotonics/QuickStartGit/blob/main/';
+
+const rawBase  = 'https://raw.githubusercontent.com/JQInanophotonics/QuickStartGit/main/';
+const blobBase = 'https://github.com/JQInanophotonics/QuickStartGit/blob/main/';
 
 let md = fs.readFileSync('README.md', 'utf8');
 
-// 1. Banner images -> H2 headings (uses alt text)
-md = md.replace(/^!\[(.+?)\]\((?:.*?assets\/banner-[^)]*?\.svg)\)\s*$/gm, '## $1');
-
-// 2. Drop top header.svg and badge line (GitHub chrome)
-md = md.replace(/^!\[[^\]]*\]\((?:.*?assets\/header[^)]*)\)\s*$/gm, '');
+// 1. Drop shields.io badge lines (clusters of [![...](...)](...) on their own line)
 md = md.replace(/^(?:\[!\[[^\]]*\]\([^)]*\)\]\([^)]*\)\s*)+$/gm, '');
 
-// 3. Relative links -> absolute GitHub URLs
-md = md.replace(/\]\((?!https?:\/\/|#)([^)]+)\)/g, `](${repoBase}$1)`);
+// 2. Images: relative srcs -> raw.githubusercontent.com (actual file bytes,
+//    so Notion can render them as image blocks). Banners stay as images.
+md = md.replace(/(!\[[^\]]*\]\()(?!https?:\/\/)(?:\.\/)?([^)]+)\)/g, `$1${rawBase}$2)`);
+
+// 3. Regular links: relative -> absolute GitHub blob URLs.
+//    (?<!!) ensures image syntax from step 2 is not re-touched.
+md = md.replace(/(?<!!)(\[[^\]]*\]\()(?!https?:\/\/|#)(?:\.\/)?([^)]+)\)/g, `$1${blobBase}$2)`);
 
 const blocks = markdownToBlocks(md);
 
